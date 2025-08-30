@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> App To Do List </title>
+    <!-- link file css -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+    <!-- link font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- link font google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- link logo -->
+    <link rel="shortcut icon" href="assets/image/icon/paper_15158927.png" type="image/x-icon">
+</head>
+
+<body>
+    <div id="container">
+        <h1 class="todo-title">To Do LisT</h1>
+        <p class="todo-subtitle">Organize your tasks with style and efficiency</p>
+        <div class="todo-input-container">
+            <div>
+                <input type="text" placeholder="Add a new task..." id="task-input" required />
+                <button id="add-task-btn" type="button">
+                    <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11 4V11H4V13H11V20H13V13H20V11H13V4H11Z"></path>
+                    </svg>
+                    <span class="text">Add Task</span>
+                </button>
+            </div>
+            <div>
+                <button type="button" id="search-btn" onclick="searchTask()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="none" viewBox="0 0 24 24"
+                        stroke="white" stroke-width="2">
+                        <circle cx="11" cy="11" r="7" />
+                        <line x1="16.65" y1="16.65" x2="21" y2="21" />
+                    </svg>
+                    <span class="text">search</span></button>
+                <input type="text" placeholder="Search..." id="search-input" />
+            </div>
+        </div>   
+        <div class="todo-list-container">
+            <div class="title-task">
+                <span></span>
+                <h3>Tasks</h3>
+                <span></span>
+            </div>
+            <ul class="todo-list"></ul>
+        </div>
+</div>
+
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
+    <script src="assets/dist/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,343 @@
+/* font google */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+/* #455a64 */
+body {
+  font-family: "Fira Sans", Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+:root{
+  --background-color: #fff;
+  --text-color-white: #fff;
+  --text-color-dark: #455a64;
+  --background-item-color-dark: #455a64;
+  --background-item-color-white: #fff;
+  --background-input: hsl(220 50% 96%);
+  --border-color: #ccc;
+
+}
+
+.toast {
+  position: fixed;
+  bottom:1%;
+  right: 1%;
+  border-radius: 12px;
+  background: var(--background-color);
+  padding: 20px 35px 20px 25px;
+  box-shadow: 0 6px 20px -5px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  transform: translateX(calc(100% + 30px));
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+}
+.toast.active {
+  transform: translateX(0%);
+}
+.toast .toast-content {
+  display: flex;
+  align-items: center;
+}
+.toast-content .check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  min-width: 35px;
+  background-color: var(--background-item-color-dark);
+  color: var(--text-color-white);
+  font-size: 20px;
+  border-radius: 50%;
+}
+.toast-content .message {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+}
+.message .text {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-color-dark);
+}
+.message .text.text-1 {
+  font-weight: 600;
+  color: var(--text-color-dark);
+}
+.toast .progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+}
+.toast .progress:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--background-item-color-dark);
+}
+.progress.active:before {
+  animation: progress 5s linear forwards;
+}
+@keyframes progress {
+  100% {
+    right: 100%;
+  }
+}
+
+#container{
+  width: 100%;
+  max-width: 900px;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.todo-title {
+  text-align: center;
+   font-size: 3rem;
+   font-weight: bold;
+   font-family: "Fira Sans", Tahoma, Geneva, Verdana, sans-serif;
+   font-style: italic;
+   background-color: var(--background-color);
+   color: var(--text-color-dark);
+}
+
+ .todo-subtitle {
+  color: var(--text-color-dark);
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+/* container inputs */
+ .todo-input-container{
+  width: 100%;
+  margin: 10px auto;
+  display:grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  gap:10px;
+}
+ .todo-input-container div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+/* input add & input search */
+ .todo-input-container #task-input, 
+ .todo-input-container #search-input {
+  width: 90%;
+  padding: 10px;
+  border:1px solid  var(--background-item-color-dark);
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: var(--background-input);
+}
+
+ .todo-input-container #task-input::placeholder,
+ .todo-input-container #search-input::placeholder {
+  color: var(--text-color-dark);
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: italic;
+  font-family: 'Poppins', sans-serif;
+}
+
+ .todo-input-container #task-input:focus,
+ .todo-input-container #search-input:focus {
+  outline: none !important;
+  border-color: var(--background-item-color-dark) !important;
+}
+
+/* btn add task  & btn search*/
+#add-task-btn,#search-btn{
+  font-size: 1rem;
+  width: 150px;
+  height: 44px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 5px;
+  color: var(--text-color-white);
+  background-color: var(--background-item-color-dark); 
+}
+/* btn add task */
+#add-task-btn svg {
+  width: 24px;
+  fill: var(--text-color-white);
+}
+
+
+
+
+
+.todo-list-container {
+  width: 100%;
+  margin: 5px auto;
+}
+.title-task{
+  width: 100%;
+  height: 40px;
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  gap: 10px;
+  border-radius: 5px;
+}
+.title-task span{
+  width:25%;
+  max-width: 900px !important;
+  border-top:2px solid var(--border-color) ;
+
+}
+.todo-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+
+}
+
+.task-item {
+  background: var(--background-item-color-white);
+  border: 2px solid var(--border-color);
+  border-bottom: 3px solid hwb(0 80% 20% / 0.425);
+  padding: 10px 16px;
+  border-radius: 10px;
+  width: 100%;
+  height: fit-content;
+  min-height: 80px;
+  display: flex;
+  justify-content: space-between !important;
+  align-items: center;
+  gap: 10px;
+}
+.task-item .task-container {
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 20px;
+
+}
+.task-item .task-container input[type="checkbox"] {
+  appearance: none;
+  width: 30px;
+  height: 20px;
+  border: 2px solid var(--background-item-color-dark);
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-item .task-container input[type="checkbox"]:checked {
+  background: var(--background-item-color-dark);
+}
+
+.task-item .task-container input[type="checkbox"]:checked::before {
+  content: "\2714";
+  font-size: 14px;
+  color: var(--text-color-white);
+}
+.task-item label {
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-color-dark);
+  margin-bottom: 5;
+  transition: 0.2s;
+  cursor: pointer;
+  width: 100% !important;
+}
+.task-item .task-container input[type="text"]{
+    width: 100% ;
+    height: 40px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-color-dark);
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    background-color:var(--background-input);
+}
+
+
+
+/* completed task */
+.completed{
+  text-decoration: line-through;
+  color: var(--text-color-dark);
+  font-style: italic;
+  font-weight: 400;
+  background: var(--background-item-color-dark);
+  
+}
+.task-item .task-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 10%;
+
+}
+.task-item .task-actions button {
+  background: transparent;
+  border: none;
+  padding: 6px ;
+  cursor: pointer;
+}
+.task-item .task-actions i {
+  font-size: 18px;
+  color:var(--background-item-color-dark);
+  cursor: pointer;
+  transition: 0.2s;
+}
+.task-item .task-actions  i:hover {
+  color: var(--background-item-color-dark);
+}
+
+
+ .empty-state {
+  text-align: center;
+  color: var(--text-color-dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.empty-state h3 {
+  font-size: 2rem;
+  color: var(--text-color-dark);
+}
+.empty-state p {
+  font-size: 1.1rem;
+  color: var(--text-color-dark);
+} 
+
