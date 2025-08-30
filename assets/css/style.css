@@ -274,7 +274,7 @@ body {
   width: 100% !important;
 }
 .task-item .task-container input[type="text"]{
-    width: 100% ;
+    width: 100% !important;
     height: 40px;
     border: none;
     outline: none;
@@ -340,4 +340,5 @@ body {
   font-size: 1.1rem;
   color: var(--text-color-dark);
 } 
+
 
